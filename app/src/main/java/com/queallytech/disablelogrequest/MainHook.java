@@ -58,7 +58,7 @@ public class MainHook implements IXposedHookLoadPackage {
                     int uid = XposedHelpers.getIntField(client, "mUid");
                     String packageName = (String) XposedHelpers.getObjectField(client, "mPackageName");
 
-                    XposedHelpers.callMethod(mLogcatManagerService,"onAccessApprovedForClient", client);
+                    XposedHelpers.callMethod(mLogcatManagerService,"onAccessDeclinedForClient", client);
 
                     Log.i(LOG_TAG, "bypass for package=" + packageName + " uid=" + uid);
                     param.setResult(null);
